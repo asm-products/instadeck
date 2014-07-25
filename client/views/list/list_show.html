@@ -1,0 +1,45 @@
+<template name="ListShow">
+  <div class="well">
+    {{#InlineEditor}}
+        <div>
+          <h2 style="display: inline;">{{name}}</h2>
+          <a class="delete-list">
+            <i class="fa fa-trash-o"></i>
+          </a>
+        </div>
+
+      <ul class="avatar-list">
+        {{#each members}}
+          <li class="avatar-list">
+            <img class="img-circle avatar avatar-small" src="{{profile_picture}}">
+            <a class="remove-from-list">
+              remove from list
+            </a>
+          </li>
+        {{/each}}
+      </ul>
+        <a class="cancel btn-default btn">
+          Cancel Editing
+        </a>
+    {{else}}
+      <div>
+        <h2>{{name}}</h2>
+      </div>
+
+      <ul class="avatar-list">
+        {{#each members}}
+          <li class="avatar-list">
+            <img class="img-circle avatar avatar-small" src="{{profile_picture}}">
+          </li>
+        {{/each}}
+      </ul>
+      <a class="btn btn-default edit">
+        Edit
+      </a>
+    {{/InlineEditor}}
+  </div>
+
+  <div class="content">
+    {{> FeedList}}
+  </div>
+</template>

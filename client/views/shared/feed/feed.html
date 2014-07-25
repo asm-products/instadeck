@@ -1,0 +1,27 @@
+<template name="FeedList">
+  <div class="list-group">
+    {{#each this.cachedFeed}}
+    <a class="list-group-item">
+      <div>
+        {{#if equals type "video"}}
+          <video controls height="640" width="640"> 
+            <source src="{{videos.standard_resolution.url}}" type="video/mp4">
+          </video>
+        {{else}}
+          <img src="{{images.standard_resolution.url}}" class="img-rounded">
+        {{/if}}
+        {{user.full_name}} ({{user.username}})&nbsp;&nbsp;
+        {{formatUnixShortDate created_time}}&nbsp;&nbsp;
+        <a class=like>
+          <i class="fa fa-heart"></i>
+        </a>
+      </div>
+    </a>
+    {{else}}
+      No Feed
+    {{/each}}
+    <a class="list-group-item load-more btn">
+      Load more....
+    </a>
+  </div>
+</template>

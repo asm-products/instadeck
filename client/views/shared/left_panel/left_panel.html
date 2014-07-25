@@ -1,0 +1,10 @@
+<template name="LeftPanel">
+  {{#linkTo route="home"}}
+    HOME
+  {{/linkTo}}&nbsp;&nbsp;&nbsp;&nbsp;
+  {{#each currentUser.lists}}
+    {{#linkTo route="list.show" params=this}}
+      {{name}}
+    {{/linkTo}}&nbsp;&nbsp;
+  {{/each}}
+</template>

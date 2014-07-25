@@ -1,0 +1,31 @@
+@import "/packages/useful/bootstrap/less/bootstrap.lessimport";
+
+@avatar-width: 40px;
+@avatar-main-width: 50px;
+@avatar-small-width: 30px;
+
+.avatar {
+  width: @avatar-width;
+
+  &.avatar-small {
+    width: @avatar-width;
+  }
+
+  &.avatar-main {
+    width: @avatar-main-width;
+  }
+}
+
+.avatar-list {
+  display: inline;  
+  list-style-type: none;
+}
+
+.clear-avatar {
+  margin-left: @avatar-width;
+  padding-left: 10px;
+
+  &.small {
+    margin-left: @avatar-small-width;
+  }
+}
