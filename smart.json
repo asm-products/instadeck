@@ -5,10 +5,10 @@
   },
   "packages": {
     "useful": {
-      "git": "git://github.com/usefulio/meteor-useful-package.git"
+      "git": "https://github.com/usefulio/meteor-useful-package"
     },
     "accounts-instagram": {
-      "git": "git://github.com/yubozhao/meteor-accounts-instagram.git"
+      "git": "https://github.com/yubozhao/meteor-accounts-instagram"
     },
     "collection-helpers": {},
     "publish-cache": {},
