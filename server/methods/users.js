@@ -1,5 +1,6 @@
 Meteor.methods({
-  'updateUserFeed': function () {
-    Users.updateFeed();
+  '/users/update/follows': function () {
+    this.unblock();
+    Users.getAllFollows();
   }
-})
+});

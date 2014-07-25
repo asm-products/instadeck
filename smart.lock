@@ -10,7 +10,9 @@
         "path": "../../usefulio/meteor-useful-package"
       },
       "collection-helpers": {},
-      "publish-cache": {}
+      "publish-cache": {},
+      "kadira": {},
+      "segment.io": {}
     },
     "packages": {
       "useful": {
@@ -25,6 +27,16 @@
         "git": "https://github.com/yubozhao/meteor-publish-cache.git",
         "tag": "v0.1.1",
         "commit": "e9d0330af7453a656f230cf4d5d236aae83375c8"
+      },
+      "kadira": {
+        "git": "https://github.com/meteorhacks/kadira.git",
+        "tag": "v2.4.9",
+        "commit": "8bb902989917522822a0897117672ae858c23427"
+      },
+      "segment.io": {
+        "git": "https://github.com/percolatestudio/meteor-segment.io.git",
+        "tag": "v2.0.9",
+        "commit": "339e1477b5ce68dd7961fc54c0ce3a5204025b37"
       },
       "collection-hooks": {
         "git": "https://github.com/matb33/meteor-collection-hooks.git",

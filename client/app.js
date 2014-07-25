@@ -13,13 +13,12 @@ Deps.autorun(function () {
     Meteor.subscribeCache('follow_accounts');
 
     Meteor.setInterval(function () {
-      //Caches.updateUserFeed();
-      Meteor.call('updateUserFeed')
+      Meteor.call('/caches/update/user_feed')
     }, 90000);
 
     Meteor.setInterval(function () {
       Meteor.subscribeCache('follow_accounts');
-      Meteor.call('getAllFollows');
+      Meteor.call('/user/update/follows');
     }, 43200000);
   }
 });
@@ -40,4 +39,23 @@ App.helpers = {
 
 _.each(App.helpers, function (helper, key) {
   Handlebars.registerHelper(key, helper);
+});
+
+Meteor.startup(function () {
+ analytics.load('a89ad3gcau'); 
+
+ Deps.autorun(function(comp) {
+   if (! Router.current() || ! Router.current().ready())
+    return;
+
+   var user = Meteor.user();
+   if (! user)
+    return;
+
+   analytics.identify(user._id, {
+    name: user.profile.username
+   });
+
+   comp.stop();
+ });
 });

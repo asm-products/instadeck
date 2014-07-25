@@ -1,3 +1,4 @@
+/*
 Caches.updateUserFeed = function () {
   var user = Meteor.user();
 
@@ -56,3 +57,4 @@ Caches.updateUserFeed = function () {
     }
   });
 };
+*/

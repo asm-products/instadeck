@@ -3,18 +3,29 @@
     {{#each this.cachedFeed}}
     <a class="list-group-item">
       <div>
-        {{#if equals type "video"}}
-          <video controls height="640" width="640"> 
-            <source src="{{videos.standard_resolution.url}}" type="video/mp4">
-          </video>
-        {{else}}
-          <img src="{{images.standard_resolution.url}}" class="img-rounded">
-        {{/if}}
-        {{user.full_name}} ({{user.username}})&nbsp;&nbsp;
-        {{formatUnixShortDate created_time}}&nbsp;&nbsp;
-        <a class=like>
-          <i class="fa fa-heart"></i>
-        </a>
+        <div>
+          {{#if equals type "video"}}
+            <video controls height="640" width="640"> 
+              <source src="{{videos.standard_resolution.url}}" type="video/mp4">
+            </video>
+          {{else}}
+            <img src="{{images.standard_resolution.url}}" class="img-rounded">
+          {{/if}}
+
+          {{#linkTo route="instagram.account.show" params=this.user}}
+            <img class="img-circle avatar avatar-small" src="{{this.user.profile_picture}}">
+          {{/linkTo}}&nbsp;&nbsp;
+
+          {{formatUnixShortDate created_time}}&nbsp;&nbsp;
+
+          <a class="like">
+            <i class="fa fa-heart"></i>
+          </a>
+        </div>
+
+        <div>
+          {{caption.text}}
+        </div>
       </div>
     </a>
     {{else}}

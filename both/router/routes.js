@@ -18,5 +18,9 @@ Router.map(function () {
 
   this.route('list.show', {path: '/list/:slug'});
   this.route('instagram.account.show', {path: '/instagram/:id'});
-  this.route('instagram.pic.show', {path: '/instagram/:account_id/:id'});
+});
+
+Router.onRun(function () {
+  if (analytics)
+    analytics.page();
 });

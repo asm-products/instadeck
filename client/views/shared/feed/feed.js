@@ -12,6 +12,6 @@ Template.FeedList.events({
   'click .like': function (e, tmpl) {
     e.preventDefault();
     console.log(this);
-    Meteor.call('likeMedia', this.id);
+    Meteor.call('/caches/like/media', this.id);
   }
 });

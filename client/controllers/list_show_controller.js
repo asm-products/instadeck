@@ -9,13 +9,9 @@ ListShowController = RouteController.extend({
 
     if (list) {
       Meteor.subscribeCache('list', list._id, 50, 0);
-      Meteor.call('updateListFeed', list._id);
     }
 
     this.skip = 0;
     return list;
-  },
-  onRun: function () {
-      
   }
 });

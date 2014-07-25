@@ -8,6 +8,8 @@
       "path": "/Users/yubz86/src/usefulio/meteor-useful-package"
     },
     "collection-helpers": {},
-    "publish-cache": {}
+    "publish-cache": {},
+    "kadira": {},
+    "segment.io": {}
   }
 }

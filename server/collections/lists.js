@@ -59,7 +59,9 @@ Lists.updateFeed = function (listId) {
             });
           }
 
-          Caches.upsert({id: doc.id}, {$set: fields});            
+          var cache = Caches.findOne({id: doc.id});
+          if (!cache)
+            Caches.insert(fields);            
         });
       }
     });

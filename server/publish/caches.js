@@ -16,3 +16,13 @@ Meteor.publishCache('list', function (listId, limit, skip) {
 
   return [accountsHandle, cachesHandle];
 }, {unblock: true});
+
+Meteor.publishCache('instagram_account', function (userId, limit, skip) {
+  var cachesHandle = Caches.find({user_id: userId}, {
+    sort: {created_time: -1},
+    limit: limit || 0,
+    skip: skip || 0
+  });
+
+  return cachesHandle;
+}, {unblock: true});
