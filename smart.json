@@ -4,6 +4,9 @@
     "tag": "release/0.8.2"
   },
   "packages": {
+    "useful": {
+      "git": "git://github.com/usefulio/meteor-useful-package"
+    }
     "collection-helpers": {},
     "publish-cache": {},
     "kadira": {},
