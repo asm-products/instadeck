@@ -4,9 +4,6 @@
     "tag": "release/0.8.2"
   },
   "packages": {
-    "useful": {
-      "path": "/Users/yubz86/src/usefulio/meteor-useful-package"
-    },
     "collection-helpers": {},
     "publish-cache": {},
     "kadira": {},
