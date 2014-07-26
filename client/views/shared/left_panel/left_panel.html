@@ -1,10 +1,23 @@
 <template name="LeftPanel">
-  {{#linkTo route="home"}}
-    HOME
-  {{/linkTo}}&nbsp;&nbsp;&nbsp;&nbsp;
-  {{#each currentUser.lists}}
-    {{#linkTo route="list.show" params=this}}
-      {{name}}
-    {{/linkTo}}&nbsp;&nbsp;
-  {{/each}}
+  <div class="row">
+    <div class="col-md-12">
+      {{#linkTo route="home"}}
+        HOME
+      {{/linkTo}}&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+  </div>
+  <div class="row">
+    <ul>
+      <li class="all-list">
+        <a href="/">All</a>
+      </li>
+      {{#each currentUser.lists}}
+        <li class="lists">
+          {{#linkTo route="list.show" params=this}}
+            {{name}}
+          {{/linkTo}}&nbsp;&nbsp;
+        </li>
+      {{/each}}
+    </ul>
+  </div>
 </template>

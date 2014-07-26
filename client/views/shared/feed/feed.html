@@ -4,19 +4,23 @@
     <a class="list-group-item">
       <div>
         <div>
+          <div class="media-container">
           {{#if equals type "video"}}
-            <video controls height="640" width="640"> 
-              <source src="{{videos.standard_resolution.url}}" type="video/mp4">
+            <video controls height="306" width="306"> 
+              <source src="{{videos.low_resolution.url}}" type="video/mp4">
             </video>
           {{else}}
-            <img src="{{images.standard_resolution.url}}" class="img-rounded">
+            <img src="{{images.low_resolution.url}}" class="img-rounded">
           {{/if}}
+              <div class="media-overlay"></div>
+              <div class="media-info">
+                {{#linkTo route="instagram.account.show" params=this.user}}
+                  <img class="img-circle avatar avatar-sm" src="{{this.user.profile_picture}}">
+                {{/linkTo}}&nbsp;&nbsp;
 
-          {{#linkTo route="instagram.account.show" params=this.user}}
-            <img class="img-circle avatar avatar-small" src="{{this.user.profile_picture}}">
-          {{/linkTo}}&nbsp;&nbsp;
-
-          {{formatUnixShortDate created_time}}&nbsp;&nbsp;
+                {{formatUnixShortDate created_time}}&nbsp;&nbsp;
+              </div>
+            </div>
 
           <a class="like">
             <i class="fa fa-heart"></i>

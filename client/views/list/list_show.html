@@ -1,42 +1,51 @@
 <template name="ListShow">
-  <div class="well">
-    {{#InlineEditor}}
-        <div>
-          <h2 style="display: inline;">{{name}}</h2>
-          <a class="delete-list">
-            <i class="fa fa-trash-o"></i>
-          </a>
-        </div>
-
-      <ul class="avatar-list">
-        {{#each members}}
-          <li class="avatar-list">
-            <img class="img-circle avatar avatar-small" src="{{profile_picture}}">
-            <a class="remove-from-list">
-              remove from list
-            </a>
-          </li>
-        {{/each}}
-      </ul>
-        <a class="cancel btn-default btn">
-          Cancel Editing
-        </a>
-    {{else}}
-      <div>
+  <div id="list-hero" class="well">
+    <!-- {{#InlineEditor}} -->
+    <div class="list-hero">
+      <div class="list-title">
         <h2>{{name}}</h2>
+      </div>
+      <div class="list-control">
+        <a class="delete-list">
+          <i class="fa fa-trash-o"></i>
+        </a>
+<!--         <button type="button" class="close cancel">
+          cancel
+        </button> -->
+      </div>
+    </div>
+
+    <ul class="avatar-list">
+      {{#each members}}
+        <li class="avatar-item">
+          <img class="img-circle avatar avatar-md" src="{{profile_picture}}">
+          <button type="button" class="close remove-from-list">&times;</button>
+          <!-- <a class="remove-from-list">
+            remove
+          </a> -->
+        </li>
+      {{/each}}
+    </ul>
+<!--     {{else}}
+      <div class='list-hero'>
+        <div class="list-title">
+          <h2>{{name}}</h2>
+        </div>
+        <div class="list-control">
+          <button type="button" class="close edit">
+            edit
+          </button>
+        </div>
       </div>
 
       <ul class="avatar-list">
         {{#each members}}
-          <li class="avatar-list">
-            <img class="img-circle avatar avatar-small" src="{{profile_picture}}">
+          <li class="avatar-item">
+            <img class="img-circle avatar avatar-md" src="{{profile_picture}}" title="{{username}}">
           </li>
         {{/each}}
       </ul>
-      <a class="btn btn-default edit">
-        Edit
-      </a>
-    {{/InlineEditor}}
+    {{/InlineEditor}} -->
   </div>
 
   <div class="content">

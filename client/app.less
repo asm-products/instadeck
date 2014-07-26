@@ -1,31 +1,105 @@
 @import "/packages/useful/bootstrap/less/bootstrap.lessimport";
 
-@avatar-width: 40px;
-@avatar-main-width: 50px;
-@avatar-small-width: 30px;
+@avatar-md-width: 40px;
+@avatar-lg-width: 50px;
+@avatar-sm-width: 30px;
+@avatar-xs-width: 15px;
 
-.avatar {
-  width: @avatar-width;
-
-  &.avatar-small {
-    width: @avatar-width;
-  }
-
-  &.avatar-main {
-    width: @avatar-main-width;
-  }
+body{
+  padding-top: @grid-gutter-width;
 }
 
 .avatar-list {
   display: inline;  
   list-style-type: none;
+  .make-row();
+  padding: 0px;
+  .avatar-item{
+    .make-xs-column(1);
+    button.close{
+      position: absolute;
+      margin-top: -5px;
+      right: 18px;
+      font-size: 14px;
+    }
+  }
+}
+.avatar {
+  width: @avatar-md-width;
+
+  &.avatar-sm {
+    width: @avatar-sm-width;
+  }
+
+  &.avatar-xs {
+    width: @avatar-xs-width;
+  }
+
+  &.avatar-md {
+    width: @avatar-md-width;
+  }
 }
 
 .clear-avatar {
-  margin-left: @avatar-width;
+  margin-left: @avatar-md-width;
   padding-left: 10px;
 
   &.small {
-    margin-left: @avatar-small-width;
+    margin-left: @avatar-sm-width;
   }
 }
+
+#list-hero{
+  .list-hero{
+    .make-xs-column(24);
+    margin-bottom: @grid-gutter-width;
+    .list-title{
+      display:inline;
+      h2{
+        display:inline;
+      }
+      a.delete-list{
+        padding-left: 5px;
+      }
+    }
+    .list-control{
+      display:inline;
+      margin-left: 10px;
+      button.close{
+        float: none;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.list-group{
+  .list-group-item{
+    .media-container{
+      position: relative;
+      width: 306px;
+      height: 306px;
+      .media-overlay{
+        z-index: 2;
+        color: #000;
+        background-color: #000;
+        opacity: 0.5;
+      }
+      .media-info{
+        z-index: 3;
+        padding:10px;
+      }
+      div{
+        position: absolute;
+        width: 100%;
+        top: 0px;
+        left: 0px;
+        padding-top: 10px;
+        height: 50px;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+      }
+    }
+  }
+}
+
