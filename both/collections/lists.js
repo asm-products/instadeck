@@ -30,14 +30,18 @@ Lists.addMember = function (name, memberId) {
 
 Lists.helpers({
   members: function () {
-    return InstagramAccounts.find({id: {$in: this.member_ids}});
-  },
-
-  cachedFeedImages: function () {
-    return Caches.find({'user_id': {$in: this.member_ids}, type: 'image'}, {sort: {created_time: -1}});
+    if (_.isArray(this.member_ids)) {
+      return InstagramAccounts.find({id: {$in: this.member_ids}});
+    } else {
+      return;
+    }
   },
 
   cachedFeed: function () {
-    return Caches.find({'user_id': {$in: this.member_ids}}, {sort: {created_time: -1}});
+    if (_.isArray(this.member_ids)) {
+      return Caches.find({'user_id': {$in: this.member_ids}}, {sort: {created_time: -1}});
+    } else {
+      return;
+    }
   }
 });

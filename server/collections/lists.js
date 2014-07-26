@@ -10,11 +10,6 @@ Lists.allow({
   }
 });
 
-Lists.after.insert(function (userId, doc) {
-  //Lists.updateFeed(doc._id);
-});
-
-
 Lists.updateFeed = function (listId) {
   var list = Lists.findOne({_id: listId});
 

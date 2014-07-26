@@ -8,7 +8,11 @@ Users = Meteor.users;
 
 Users.helpers({
   follows_accounts: function () {
-    return InstagramAccounts.find({id: {$in: this.follows}});
+    if (_.isArray(this.follows)) {
+      return InstagramAccounts.find({id: {$in: this.follows}});
+    } else {
+      return;
+    }
   },
   lists: function () {
     return Lists.find({user_id: this._id});
@@ -19,6 +23,10 @@ Users.helpers({
   },
 
   cachedFeed: function () {
-    return Caches.find({'user.id': {$in: this.follows}}, {sort: {created_time: -1}});
+    if (_.isArray(this.follows)) {
+      return Caches.find({'user.id': {$in: this.follows}}, {sort: {created_time: -1}});
+    } else {
+      return;
+    }
   }
 });
