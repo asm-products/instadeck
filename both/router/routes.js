@@ -17,6 +17,7 @@ Router.map(function () {
   this.route('home', {path: '/'});
 
   this.route('list.show', {path: '/list/:slug'});
+  this.route('hashtag.show', {path: '/hashtag/:name'});
   this.route('instagram.account.show', {path: '/instagram/:id'});
 });
 

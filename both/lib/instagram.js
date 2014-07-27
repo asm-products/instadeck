@@ -71,5 +71,12 @@ InstagramSDK = {
     var url = '/media/' + mediaId + '/likes';
     var result = this.post(url, options);
     return result.data;
+  },
+
+  getHashtagFeed: function (name, options) {
+    var url = '/tags/' + name + '/media/recent';
+    var result = this.post(url, options);
+
+    return result.data;
   }
 };

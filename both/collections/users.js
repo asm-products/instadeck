@@ -1,6 +1,7 @@
 /*
  * {
  *  follows: []
+ *  saved_hashtags: [name]
  * }
  */
 

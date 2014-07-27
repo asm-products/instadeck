@@ -1,42 +1,58 @@
 <template name="Home">
   <div class="panel panel-default">
     <div class="panel-body">
-      <table class="table table-bordered table-condensed">
-        <tbody>
-          {{#each currentUser.follows_accounts}}
-            <tr>
-              <td class="avatar">
-                <img src="{{profile_picture}}" class="img-circle avatar">
-              </td>
-              <td>
-                {{#linkTo route="instagram.account.show" params=this}}
-                  {{full_name}} ({{username}})
-                {{/linkTo}}
-              </td>
-              <td>
-                <ul>
-                  {{#each memberOfLists}}
-                    <li>
-                      {{#linkTo route="list.show" params=this}}
-                        {{name}}
-                      {{/linkTo}}
-                    </li>
-                  {{/each}}
-                </ul>
-              </td>
-              <td>
-                <form class="form-inline">
-                  <div class="form-group">
-                    <input type="text" class="form-control" name="lists"
-                    placeholder="Separated with comma">
-                  </div>
-                  <button type="submit" class="btn btn-default">Add</button>
-                </form>
-              </td>
-            </tr>
-          {{/each}}
-        </tbody>
-      </table>
+      {{> HashTagForm}}
+
+      {{> UserFollowList}}
     </div>
   </div>
+</template>
+
+<template name="UserFollowList">
+  <table class="table table-bordered table-condensed">
+    <tbody>
+      {{#each currentUser.follows_accounts}}
+        <tr>
+          <td class="avatar">
+            <img src="{{profile_picture}}" class="img-circle avatar">
+          </td>
+          <td>
+            {{#linkTo route="instagram.account.show" params=this}}
+              {{full_name}} ({{username}})
+            {{/linkTo}}
+          </td>
+          <td>
+            <ul>
+              {{#each memberOfLists}}
+                <li>
+                  {{#linkTo route="list.show" params=this}}
+                    {{name}}
+                  {{/linkTo}}
+                </li>
+              {{/each}}
+            </ul>
+          </td>
+          <td>
+            <form class="form-inline">
+              <div class="form-group">
+                <input type="text" class="form-control" name="lists"
+                placeholder="Separated with comma">
+              </div>
+              <button type="submit" class="btn btn-default">Add</button>
+            </form>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</template>
+
+<template name="HashTagForm">
+  <form class="form-inline">
+    <div class="form-group">
+      <input type="text" class="form-control" name="name"
+      placeholder="Hashtag">
+    </div>
+    <button type="submit" class="btn btn-default">Add</button>
+  </form>
 </template>

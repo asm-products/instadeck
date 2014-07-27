@@ -6,16 +6,32 @@
       {{/linkTo}}&nbsp;&nbsp;&nbsp;&nbsp;
     </div>
   </div>
+
   <div class="row">
+    <div class="col-md-12">
+      LIST
+    </div>
     <ul>
-      <li class="all-list">
-        <a href="/">All</a>
-      </li>
       {{#each currentUser.lists}}
         <li class="lists">
           {{#linkTo route="list.show" params=this}}
             {{name}}
-          {{/linkTo}}&nbsp;&nbsp;
+          {{/linkTo}}
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      SAVED HASHTAGS  
+    </div>
+    <ul>
+      {{#each currentUser.saved_hashtags}}
+        <li class="lists">
+          {{#linkTo route="hashtag.show" name=this}}
+            {{this}}
+          {{/linkTo}}
         </li>
       {{/each}}
     </ul>
