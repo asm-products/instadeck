@@ -22,5 +22,17 @@ Meteor.methods({
   '/caches/update/instagram_account_feed': function (instagramId) {
     this.unblock();
     Caches.updateInstagramAccountFeed(instagramId);
+  },
+
+  '/caches/update/list_accounts': function (slug) {
+    this.unblock();    
+
+    var list = Lists.findOne({slug: slug});
+    
+    if (list) {
+      _.each(list.member_ids, function (id) {
+        Caches.updateInstagramAccountFeed(id); 
+      });
+    }
   }
 });
