@@ -13,5 +13,9 @@ ListShowController = RouteController.extend({
 
     this.skip = 0;
     return list;
+  },
+  onRun: function () {
+    console.log('calling once update');
+    Meteor.call('/caches/update/list_accounts', this.params.slug);
   }
 });

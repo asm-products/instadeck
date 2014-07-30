@@ -23,13 +23,18 @@ Caches.updateUserFeed = function () {
     return;
 
   try {
-    var result = InstagramSDK.getUserFeed({accessToken: accessToken});
+    InstagramSDK.getUserFeed({
+      accessToken: accessToken,
+      callback: function (err, res) {
+        if (err)
+          throw err;
+        var result = res.data;
 
-    if (result.data) {
-      _.each(result.data, function (doc) {
-        Caches.create(doc);
-      });
-    }
+        _.each(result.data, function (doc) {
+          Caches.create(doc);
+        });
+      }
+    });
   } catch (e) {
     console.log(e.toString());
   }
@@ -46,13 +51,24 @@ Caches.updateInstagramAccountFeed = function (instagramId) {
   if (!instagramAccount)
     return;
 
+  if (instagramAccount.updated_at) {
+    return moment.diff(instagramAccount.updated_at, 'hours') < 1;  
+  }
+
   try {
     var result = InstagramSDK.getRecentUserMedia(instagramId, {
-      accessToken: user.services.instagram.accessToken
-    });
+      accessToken: user.services.instagram.accessToken,
+      callback: function (err, res) {
+        if (err)
+          throw err;
+        var result = res.data;
+        
+        _.each(result.data, function (doc) {
+          Caches.create(doc);
+        });
 
-    _.each(result.data, function (doc) {
-      Caches.create(doc);
+        InstagramAccounts.update({id: instagramId}, {$set: {updated_at: new Date}});
+      }
     });
   } catch (e) {
     console.log(e.toString());
